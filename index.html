@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title></title>
+</head>
+<body>
+    <form class="form-horizontal">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend>Simulador Performa Conciliadora</legend>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="selectbasic">Qual o faturamento mensal da sua empresa?</label>
+          <div class="col-md-4">
+            <select id="selectbasic" name="selectbasic" class="form-control">
+              <option value="1">Até R$ 50.000</option>
+              <option value="2">Até R$ 75.000</option>
+              <option value="3">Até R$ 100.000</option>
+              <option value="4">Até R$ 150.000</option>
+              <option value="5">Acima de R$150.000</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="maquinas">Quantas máquinas você tem?</label>
+          <div class="col-md-4">
+            <select id="maquinas" name="maquinas" class="form-control">
+              <option value="1">Uma</option>
+              <option value="2">Duas</option>
+              <option value="3">Três</option>
+              <option value="4">Quatro ou mais</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="adquirintes">Quantas adquirentes você trabalha? (Ex: Stone, Cielo, Rede outras)</label>
+          <div class="col-md-4">
+            <select id="adquirintes" name="adquirintes" class="form-control">
+              <option value="1">Uma</option>
+              <option value="2">Duas</option>
+              <option value="3">Três</option>
+              <option value="4">Quatro ou mais</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        
+        <!-- Multiple Radios -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="cartaobeneficio">Aceita cartões benefícios? (Ex: Sodexo, alelo, vale, outros)</label>
+          <div class="col-md-4">
+          <div class="radio">
+            <label for="cartaobeneficio-0">
+              <input type="radio" name="cartaobeneficio" id="cartaobeneficio-0" value="1" checked="checked">
+              Sim
+            </label>
+            </div>
+          <div class="radio">
+            <label for="cartaobeneficio-1">
+              <input type="radio" name="cartaobeneficio" id="cartaobeneficio-1" value="2">
+              Não
+            </label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="conferenciaVendas">Você confere suas vendas?</label>
+          <div class="col-md-4">
+            <select id="conferenciaVendas" name="conferenciaVendas" class="form-control">
+              <option value="1">Não faço conferência</option>
+              <option value="2">Confere o total que é depositado no banco</option>
+              <option value="3">Confere o total que é depositado no banco e faz o fechamento das máquinas</option>
+              <option value="4">Faz o fechamento das máquinas, confiro o extrato das adquirentes e confere o deposito no banco</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="antecipacao">Faz antecipação?</label>
+          <div class="col-md-4">
+            <select id="antecipacao" name="antecipacao" class="form-control">
+              <option value="1">Não</option>
+              <option value="2">Faz antecipação automática</option>
+              <option value="3">Faz antecipação pontual</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        <!-- Multiple Radios -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="aluguelMaquinas">Confere mensalmente a cobrança de alugueis das máquinas?</label>
+          <div class="col-md-4">
+          <div class="radio">
+            <label for="aluguelMaquinas-0">
+              <input type="radio" name="aluguelMaquinas" id="aluguelMaquinas-0" value="1" checked="checked">
+              Sim
+            </label>
+            </div>
+          <div class="radio">
+            <label for="aluguelMaquinas-1">
+              <input type="radio" name="aluguelMaquinas" id="aluguelMaquinas-1" value="2">
+              Não
+            </label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="submeter"></label>
+          <div class="col-md-4">
+            <button id="submeter" name="submeter" class="btn btn-primary">Calcular</button>
+          </div>
+        </div>
+        </fieldset>
+        </form>
+        
+</body>
+</html>
