@@ -11,7 +11,7 @@
 <body>
 
     <script>
-    $("#form-control").empty();
+    
     </script>
 
     <form class="form-horizontal">
@@ -25,12 +25,13 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Qual o faturamento mensal da sua empresa?</label>
           <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">Até R$ 50.000</option>
-              <option value="2">Até R$ 75.000</option>
-              <option value="3">Até R$ 100.000</option>
-              <option value="4">Até R$ 150.000</option>
-              <option value="5">Acima de R$150.000</option>
+            <select required id="selectbasic" name="selectbasic" class="form-control">
+               <option value="0">Selecione um valor</option>
+               <option value="1">Até R$ 50.000</option>
+               <option value="2">Até R$ 75.000</option>
+               <option value="3">Até R$ 100.000</option>
+               <option value="4">Até R$ 150.000</option>
+               <option value="5">Acima de R$150.000</option>
             </select>
           </div>
         </div>
@@ -41,7 +42,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="maquinas">Quantas máquinas você tem?</label>
           <div class="col-md-4">
-            <select id="maquinas" name="maquinas" class="form-control">
+            <select required id="maquinas" name="maquinas" class="form-control">
+                    <option value="0">Selecione um valor</option>
               <option value="1">Uma</option>
               <option value="2">Duas</option>
               <option value="3">Três</option>
@@ -56,7 +58,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="adquirintes">Quantas adquirentes você trabalha? (Ex: Stone, Cielo, Rede outras)</label>
           <div class="col-md-4">
-            <select id="adquirintes" name="adquirintes" class="form-control">
+            <select required id="adquirintes" name="adquirintes" class="form-control">
+                    <option value="0">Selecione um número</option>
               <option value="1">Uma</option>
               <option value="2">Duas</option>
               <option value="3">Três</option>
@@ -93,7 +96,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="conferenciaVendas">Você confere suas vendas?</label>
           <div class="col-md-4">
-            <select id="conferenciaVendas" name="conferenciaVendas" class="form-control">
+            <select required id="conferenciaVendas" name="conferenciaVendas" class="form-control">
+                    <option value="0">Selecione uma alternativa</option>
               <option value="1">Não faço conferência</option>
               <option value="2">Confere o total que é depositado no banco</option>
               <option value="3">Confere o total que é depositado no banco e faz o fechamento das máquinas</option>
@@ -108,7 +112,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="antecipacao">Faz antecipação?</label>
           <div class="col-md-4">
-            <select id="antecipacao" name="antecipacao" class="form-control">
+            <select required id="antecipacao" name="antecipacao" class="form-control">
+            <option value="0"><i>Selecione uma resposta</i></option>
               <option value="1">Não</option>
               <option value="2">Faz antecipação automática</option>
               <option value="3">Faz antecipação pontual</option>
@@ -138,14 +143,15 @@
         </div>
         <br>
         <br>
-        <!-- Button 
+        <!-- Button -->
         <div class="form-group">
           <label class="col-md-4 control-label" for="submeter"></label>
           <div class="col-md-4">
             <button id="submeter" name="submeter" class="btn btn-primary">Calcular</button>
           </div>
         </div>
-    -->
+    
+    <!--
         <div class="card w-50 center">
             <div class="card-body">
               <h5 class="card-title">Quanto você pode estar perdendo?</h5>
@@ -153,7 +159,13 @@
               <a id="submeter" name="submeter" href="#" class="btn btn-primary">Calcular</a>
             </div>
           </div>
-  
+        -->
+        <div id="respostaFinal">
+        <h2>Você pode estar perdendo... <output name="resposta" for=""></output> reais.</h2>
+        </div>
+
+          
+
         </fieldset>
         </form>
         
