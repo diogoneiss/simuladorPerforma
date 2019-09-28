@@ -5,16 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="jquery-3.4.1.min.js"></script>
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
     <title></title>
 </head>
 <body>
 
     <script>
-    
+    //funcoes para pegar os valores dos elementos de cada questão do questionário. Haverá também um alert caso a pessoa não selecione algum campo
+
+		function Simulacao() {
+			
+				var form = document.forms("formSimulador");
+
+				var respostas = getSelectedValues();
+				var dinheiroPerdido = 0;
+
+				if (respostas.fat == 0)
+					alert("Erro! Campo de faturamento vazio.");
+				else if (respostas.fat == 1)
+					this.faturamento = 50000;
+				else if (respostas.fat == 2)
+					this.faturamento = 75000;
+				else if (respostas.fat == 3)
+					this.faturamento = 100000;
+				else if (respostas.fat == 4)
+					this.faturamento = 150000;
+				else
+					this.faturamento = 200000;
+				
+
+				if(respostas.maq == 0)
+					alert("Erro! Campo de máquinas vazio.");
+				else if(respostas.maq == 1)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else if(respostas.maq == 2)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else if(respostas.maq == 3)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else 
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+					
+
+				if(respostas.adq == 0)
+					alert("Erro! Campo de adquirintes vazio.");
+				else if (respostas.adq == 1)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else if (respostas.adq == 2)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else if (respostas.adq == 3)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else 
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				
+
+				if(respostas.conf == 0)
+					alert("Erro! Campo de conferência vazio.");
+				else if(respostas.conf == 1)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else if(respostas.conf == 2)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else if(respostas.conf == 3)
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+				else 
+					dinheiroPerdido += this.faturamento * 0.2 / 100;
+
+				console.log(dinheiroPerdido);
+				return dinheiroPerdido;
+			}
+		
+
+
+    function getSelectedValues(){
+
+            var selectedFaturamento = document.getElementById("faturamento").value;
+            var selectedAdquirintes= document.getElementById("adquirintes").value;
+            var selectedMaquinas= document.getElementById("maquinas").value;
+            var selectedConferenciaVendas = document.getElementById("conferenciaVendas").value;
+            /*
+            if(selectedFaturamento == 0 || selectedMaquinas == 0 || selectedConferenciaVendas == 0 || selectedAdquirintes == 0)
+              alert("erro! Algum dos valores não foi selecionado.");
+            else
+              alert(selectedFaturamento + selectedAdquirintes + selectedMaquinas + selectedConferenciaVendas);
+				*/
+				var retorno = {
+					fat: selectedFaturamento,
+					adq: selectedAdquirintes,
+					maq: selectedMaquinas,
+					conf: selectedConferenciaVendas
+				};
+				alert(retorno.fat);
+				return retorno;
+		  }
+
+	function escreverPerda(){
+			var perda = Simulacao();
+			alert("Perda: "+perda);
+			//alert("Cheguei na funcao de escrever perda");
+			document.getElementsById("textoPlaceholder").value =  "Você está perdendo "+perda + " reais.";
+
+			alert("Você está perdendo "+perda + " reais.");
+		}
+
+
     </script>
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" id="formSimulador">
         <fieldset>
         
         <!-- Form Name -->
@@ -25,7 +120,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Qual o faturamento mensal da sua empresa?</label>
           <div class="col-md-4">
-            <select required id="selectbasic" name="selectbasic" class="form-control">
+            <select required id="faturamento" name="faturamento" class="form-control">
                <option value="0">Selecione um valor</option>
                <option value="1">Até R$ 50.000</option>
                <option value="2">Até R$ 75.000</option>
@@ -43,7 +138,7 @@
           <label class="col-md-4 control-label" for="maquinas">Quantas máquinas você tem?</label>
           <div class="col-md-4">
             <select required id="maquinas" name="maquinas" class="form-control">
-                    <option value="0">Selecione um valor</option>
+            <option value="0">Selecione um valor</option>
               <option value="1">Uma</option>
               <option value="2">Duas</option>
               <option value="3">Três</option>
@@ -97,7 +192,7 @@
           <label class="col-md-4 control-label" for="conferenciaVendas">Você confere suas vendas?</label>
           <div class="col-md-4">
             <select required id="conferenciaVendas" name="conferenciaVendas" class="form-control">
-                    <option value="0">Selecione uma alternativa</option>
+              <option value="0">Selecione uma alternativa</option>
               <option value="1">Não faço conferência</option>
               <option value="2">Confere o total que é depositado no banco</option>
               <option value="3">Confere o total que é depositado no banco e faz o fechamento das máquinas</option>
@@ -113,7 +208,7 @@
           <label class="col-md-4 control-label" for="antecipacao">Faz antecipação?</label>
           <div class="col-md-4">
             <select required id="antecipacao" name="antecipacao" class="form-control">
-            <option value="0"><i>Selecione uma resposta</i></option>
+            <option value="0">Selecione uma resposta</option>
               <option value="1">Não</option>
               <option value="2">Faz antecipação automática</option>
               <option value="3">Faz antecipação pontual</option>
@@ -149,7 +244,7 @@
           <label for="textoPlaceholder" class="sr-only">Quanto estou perdendo?</label>
           <input readonly type="textoPlaceholder" class="form-control" id="textoPlaceholder" placeholder="Quanto estou perdendo?">
         </div>
-        <button type="submit" class="btn btn-primary mb-2">Calcular</button>
+        <button onclick="escreverPerda();" type="submit" class="btn btn-primary mb-2">Calcular</button>
       </div>
 
 
