@@ -15,6 +15,71 @@
     //alert("Abertura da página");
     </script>
 
+
+<div id="Registro" class="ml-2 mb-5">
+  <!--Section: Contact v.2-->
+  <section class="mb-4">
+      <!--Section heading-->
+      <h3 class="h2-responsive font-weight-bold my-4">Registre-se</h3>
+      <!--Section description-->
+      <p class=" w-responsive mx-auto mb-1">Insira seus dados abaixo para seguir com a simulação.</p>
+      <p class=" w-responsive mx-auto mb-4">Nosso simulador aparecerá automaticamente após o preenchimento e envio. </p>
+  
+      <div class="row">
+          <!--Grid column-->
+          <div class="col-md-5 mb-md-0 mb-5">
+              <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+  
+                  <!--Grid row-->
+                  <div class="row">
+  
+                      <!--Grid column-->
+                      <div class="col-md-4">
+                          <div class="md-form mb-0">
+                              <input type="text" id="name" name="name" class="form-control">
+                              <label for="name" class="">Nome completo</label>
+                          </div>
+                      </div>
+                      <!--Grid column-->
+  
+                      <!--Grid column-->
+                      <div class="col-md-4">
+                          <div class="md-form mb-0">
+                              <input type="Telefone" id="Telefone" name="Telefone" class="form-control">
+                              <label for="Telefone" class="">Telefone</label>
+                          </div>
+                      </div>
+                      <!--Grid column-->
+  
+                  </div>
+                  <!--Grid row-->
+  
+                  <!--Email-->
+                  <div class="row">
+                      <div class="col-md-8">
+                          <div class="md-form mb-0">
+                              <input type="email" id="email" name="email" class="form-control">
+                              <label for="email" class="">Email</label>
+                          </div>
+                      </div>
+                  </div>
+                 
+  
+              </form>
+  
+              <div class="form-inline ml-2 mb-2">
+                  <button class="btn btn-primary" onclick="validarForm();">Enviar</button>
+              </div>
+              <div class="status"></div>
+          </div>
+  
+      </div>
+  </section>
+  <!--Section: Contact v.2-->
+  
+  </div>
+
+    <div id="simuladorCompleto" style="visibility: hidden;">
     <form class="form-horizontal" id="formSimulador" onsubmit="return false;">
         <fieldset>
         
@@ -155,6 +220,7 @@
 
         </fieldset>
         </form>
+      </div>
         
 </body>
 </html>
