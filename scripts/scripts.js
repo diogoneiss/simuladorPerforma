@@ -6,7 +6,7 @@ var maquinasValores = [];
 maquinasValores[1] = 0.02 / 100;
 maquinasValores[2] = 0.03 / 100;
 maquinasValores[3] = 0.05 / 100;
-maquinasValores[4] = 0.07/ 100;
+maquinasValores[4] = 0.07 / 100;
 
 
 var adquirintesValores = [];
@@ -37,7 +37,7 @@ antecipacaoValores[3] = 1 / 100;
 
 var cobrancaAlugueisValores = [];
 cobrancaAlugueisValores[1] = 0;
-cobrancaAlugueisValores[2] = 0.1/100;
+cobrancaAlugueisValores[2] = 0.1 / 100;
 
 // funcao principal do codigo
 function Simulacao() {
@@ -53,7 +53,7 @@ function Simulacao() {
 
 
 
-	
+
 	return dinheiroPerdido;
 }
 
@@ -98,11 +98,10 @@ function calcularCartaoBeneficio() {
 
 	var form = document.forms.formSimulador;
 
-	if(form.elements.cartaobeneficio0.checked == true){
+	if (form.elements.cartaobeneficio0.checked == true) {
 		cartaoBeneficio = form.elements.cartaobeneficio0.value;
 		//console.log("Cartao beneficio selecionado: " + cartaoBeneficio);
-	}
-	else{
+	} else {
 		cartaoBeneficio = form.elements.cartaobeneficio1.value;
 		//console.log("Cartao beneficio selecionado: " + cartaoBeneficio);
 	}
@@ -121,11 +120,10 @@ function calcularAluguelMaquinas() {
 
 	var form = document.forms.formSimulador;
 
-	if(form.elements.aluguelMaquinas0.checked == true){
+	if (form.elements.aluguelMaquinas0.checked == true) {
 		aluguelMaquinas = form.elements.aluguelMaquinas0.value;
 		//console.log("AluguelMaquinas selecionado: " + aluguelMaquinas);
-	}
-	else{
+	} else {
 		aluguelMaquinas = form.elements.aluguelMaquinas1.value;
 		//console.log("AluguelMaquinas selecionado: " + aluguelMaquinas);
 	}
@@ -178,31 +176,31 @@ function calcularFaturamento() {
 }
 
 //verificar se todas os campos foram preenchidos
-function tudoPreenchido(){
+function tudoPreenchido() {
 	var tudoCertinho = true;
 	var form = document.forms.formSimulador;
 
-	if(form.elements.antecipacao.value == 0)
+	if (form.elements.antecipacao.value == 0)
 		tudoCertinho = false;
-	if( form.elements.faturamento.value == 0)
+	if (form.elements.faturamento.value == 0)
 		tudoCertinho = false;
-	if(form.elements.conferenciaVendas.value == 0)
+	if (form.elements.conferenciaVendas.value == 0)
 		tudoCertinho = false;
-	if(form.elements.adquirintes.value == 0)
+	if (form.elements.adquirintes.value == 0)
 		tudoCertinho = false;
-	if(form.elements.maquinas.value == 0)
+	if (form.elements.maquinas.value == 0)
 		tudoCertinho = false;
-	if(form.elements.cartaobeneficio0.checked == false && form.elements.cartaobeneficio1.checked == false)
+	if (form.elements.cartaobeneficio0.checked == false && form.elements.cartaobeneficio1.checked == false)
 		tudoCertinho = false;
-	if(form.elements.aluguelMaquinas0.checked == false && form.elements.aluguelMaquinas1.checked == false)
-		tudoCertinho = false;	
-	
-	return tudoCertinho;	
+	if (form.elements.aluguelMaquinas0.checked == false && form.elements.aluguelMaquinas1.checked == false)
+		tudoCertinho = false;
+
+	return tudoCertinho;
 }
 
 function escreverPerda() {
 	// so vai executar se tudo estiver preenchido corretamente.
-	if(tudoPreenchido()){
+	if (tudoPreenchido()) {
 		var perda = Simulacao();
 		//arredondar
 		perda = Math.round(perda);
@@ -210,7 +208,39 @@ function escreverPerda() {
 		//alert("Cheguei na funcao de escrever perda");
 		document.getElementById("outputSimulador").innerHTML = "Você pode estar perdendo aproximadamente R$ " + perda + ",00 	";
 		document.getElementById("botaoPreencher").style = "display: inline-block";
-	}
-	else
+	} else
 		document.getElementById("outputSimulador").innerHTML = "Você não respondeu todos os campos necessários..";
+}
+
+function validarForm() {
+	document.getElementById('status').innerHTML = "Sending...";
+
+    formData = {
+        'name'     : $('input[name=name]').val(),
+        'email'    : $('input[name=email]').val(),
+        'Telefone'  : $('textarea[name=Telefone]').val()
+    };
+
+
+   $.ajax({
+    url : "mailResposta.php",
+    type: "POST",
+    data : formData,
+    success: function(data, textStatus, jqXHR)
+    {
+
+        $('#status').text(data.message);
+        if (data.code){//If mail was sent successfully, reset the form.
+        	$('#contact-form').closest('form').find("input[type=text], textarea").val("");
+			document.getElementById(simuladorCompleto).style = "visibility: visible;";
+		}
+		},
+	
+    error: function (jqXHR, textStatus, errorThrown)
+    {
+        $('#status').text(jqXHR);
+    }
+});
+
+
 }
