@@ -206,9 +206,12 @@ function escreverPerda() {
 		perda = Math.round(perda);
 		//alert("Perda: "+perda);
 		//alert("Cheguei na funcao de escrever perda");
-		document.getElementById("outputSimulador").innerHTML = "Você pode estar perdendo aproximadamente R$ " + perda + ",00 	";
-		document.getElementById("botaoPreencher").style = "display: inline-block";
+		document.getElementById("outputSimulador").innerHTML = "Confira resultados abaixo";
+		//jumbotron
+		document.getElementById("numeroDinheiro").innerHTML = "R$ " + perda + ",00";
+		document.getElementById("dinheiroAno").innerHTML = "R$ " + perda*12 + ",00";
+		document.getElementById("botaoPreencher").style = "display: inline-block;";
+		document.getElementById("printarOutput").style = "display: block;";
 	} else
 		document.getElementById("outputSimulador").innerHTML = "Você não respondeu todos os campos necessários..";
 }
-
