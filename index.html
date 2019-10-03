@@ -149,13 +149,25 @@
             
       <div class="form-inline" style="width: fit-content !important;">
         <div style="width: fit-content !important; height: fit-content; overflow: auto;" id="outputSimulador" class="form-group mx-sm-3 mb-2 form-control">Quanto posso estar perdendo?</div>
-        <button onclick="escreverPerda();" type="submit" id="botaoCalcular" class="btn btn-primary mb-2">Calcular</button>
-        <button style="display: none" onclick="window.location.reload();" type="submit" id="botaoPreencher" class="btn btn-primary ml-2 mb-2">Preencher novamente</button>
+        <button onclick="escreverPerda();" type="submit" id="botaoCalcular" class="btn btn-info mb-2">Calcular</button>
+        <button style="display: none" onclick="window.location.reload();" type="submit" id="botaoPreencher" class="btn btn-info ml-2 mb-2">Preencher novamente</button>
       </div>
 
 
         </fieldset>
         </form>
+      </div>
+      <div id="printarOutput" style="display: hidden;">
+        <div class="jumbotron">
+          <h1 class="display-4" id="numeroDinheiro">R$ 0,00</h1>
+          <p class="lead" id="textoDinheiro">Esse é o dinheiro aproximado que você pode estar perdendo mensalmente. Por ano, isso pode chegar a <strong id="dinheiroAno"></strong>.</p>
+          <hr class="my-4">
+          <p>Esse número foi calculado com base em suas respostas e nossas estimativas de perda.</p>
+          <p>Deseja perder menos dinheiro todo mês? Entre em contato conosco!</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Contato</a>
+          </p>
+        </div>
       </div>
         
 </body>
