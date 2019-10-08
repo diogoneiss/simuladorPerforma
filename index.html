@@ -147,8 +147,8 @@
         <br>
         
             
-      <div class="form-inline" style="width: fit-content !important;">
-        <div style="width: fit-content !important; height: fit-content; overflow: auto;" id="outputSimulador" class="form-group mx-sm-3 mb-2 form-control">Quanto posso estar perdendo?</div>
+      <div class="form-inline" style="width: fit-content;">
+        <div style="width: fit-content !important; height: fit-content; overflow: auto;" class="form-group mx-sm-3 mb-2 form-control lead"><p class="lead" id="outputSimulador" style="margin: auto">Quanto posso estar perdendo?</p></div>
         <button onclick="escreverPerda();" type="submit" id="botaoCalcular" class="btn btn-info mb-2">Calcular</button>
         <button style="display: none" onclick="window.location.reload();" type="submit" id="botaoPreencher" class="btn btn-info ml-2 mb-2">Preencher novamente</button>
       </div>
@@ -157,7 +157,7 @@
         </fieldset>
         </form>
       </div>
-      <div id="printarOutput" style="display: none;">
+      <div id="printarOutput" style="display: block;">
         <div class="jumbotron">
           <h1 class="display-4" id="numeroDinheiro">R$ 0,00</h1>
           <p class="lead" id="textoDinheiro">Esse é o dinheiro aproximado que você pode estar perdendo mensalmente. Por ano, isso pode chegar a <strong class="font-weight-bold" id="dinheiroAno"></strong>.</p>
